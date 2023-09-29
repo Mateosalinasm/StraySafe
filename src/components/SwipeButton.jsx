@@ -13,7 +13,6 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
-import {AnimatedText} from 'react-native-reanimated/lib/typescript/reanimated2/component/Text';
 
 const BUTTON_WIDTH = 300;
 const BUTTON_HEIGHT = 70;
@@ -23,7 +22,7 @@ const SWIPEABLE_DIMENSIONS = BUTTON_HEIGHT - 2 * BUTTON_PADDING;
 const H_WAVE_RANGE = SWIPEABLE_DIMENSIONS + 2 * BUTTON_PADDING;
 const H_SWIPE_RANGE = BUTTON_WIDTH - 2 * BUTTON_PADDING - SWIPEABLE_DIMENSIONS;
 
-const SwipeButton = ({onToggle}) => {
+const SwipeButton = ({onToggle, navigation}) => {
   const [toggled, setToggled] = useState(false);
   const X = useSharedValue(0);
   const animatedGestureHandler = useAnimatedGestureHandler({
@@ -53,7 +52,7 @@ const SwipeButton = ({onToggle}) => {
         X.value = withSpring(H_SWIPE_RANGE, {
           damping: 15,
         });
-        runOnJS(setToggled)(true);
+         runOnJS(navigation.navigate)('AuthScreen');
       }
     },
   });
