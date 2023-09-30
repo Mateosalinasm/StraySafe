@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, Text, View, StyleSheet} from 'react-native';
 import {SafeAreaView, ScrollView} from 'react-native';
 import { WEB_CLIENT_ID }  from '@env'
 import {
@@ -33,28 +33,52 @@ const AuthScreen = () => {
     }
   };
 
+  const handlePress = () => {
+     console.log(WEB_CLIENT_ID)
+  }
+
   return (
     <SafeAreaView className="bg-beige-200">
-      <ScrollView
+      {/* <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{flexGrow: 1}}> */}
         <View className="bg-beige-200 h-screen justify-center">
+          <View className="relative bottom-24 -rotate-15">
+            <Text style={styles.fontText} className="font-bold text-center pt-3 text-beige-500 text-5xl">
+              Welcome to Stray Safe!
+            </Text>
+          </View>
           <View className="items-center ">
             <Image
-              className="h-96 w-96 relative bottom-24"
+            style={styles.dropShadow}
+              className="h-80 w-96 relative bottom-24"
               source={require('../assets/images/dogs.png')}
               alt=""
             />
           </View>
-          <View className="flex-row justify-around">
-            <Button text="Log in" />
+          <View className="items-center border">
+            <Button text="Sign in" onPress={handlePress} />
             <Button text="Sign up" />
-
+            <Button />
           </View>
         </View>
-      </ScrollView>
+      {/* </ScrollView> */}
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  fontText: {
+    fontFamily: 'Poppins',
+    fontSize: 50,
+    fontWeight: '700',
+  },
+  dropShadow: {
+    shadowColor: 'black',
+    shadowOffset: {width: 2, height: 6},
+    shadowOpacity: 0.09,
+    shadowRadius: 3,
+  },
+});
 
 export default AuthScreen;

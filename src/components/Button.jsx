@@ -2,10 +2,10 @@ import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 const Button = ({ text, onPress }) => {
   return (
-    <View className="relative">
-      <TouchableOpacity className="items-center justify-center bg-beige-100 w-40 h-12 rounded-full border border-beige-900">
+    <View className="relative my-1">
+      <TouchableOpacity className="items-center justify-center bg-beige-100 w-80 h-12 rounded-2xl border border-beige-900">
         <Text
-          className="font-extrabold text-beige-900 text-xl text-center"
+          className="font-bold text-beige-900 text-xl text-center"
           onPress={onPress}>
           {text}
         </Text>

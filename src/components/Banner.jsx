@@ -1,11 +1,11 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, Text, View, StyleSheet} from 'react-native';
 
 const Banner = () => {
   return (
     <View className="justify-end ">
       <View className='flex-row justify-center ml-4'>
-        <Text className="text-center text-beige-500 font-extrabold text-5xl">
+        <Text  className="text-center text-beige-500 font-extrabold text-5xl">
           Stray Safe
         </Text>
         <Image
@@ -16,5 +16,6 @@ const Banner = () => {
     </View>
   );
 };
+
 
 export default Banner;

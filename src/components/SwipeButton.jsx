@@ -102,7 +102,7 @@ const SwipeButton = ({onToggle, navigation}) => {
               AnimatedStyles.swipeable,
             ]}></Animated.View>
         </PanGestureHandler>
-        <Animated.Text style={[styles.swipeText, AnimatedStyles.swipeText]}>
+        <Animated.Text style={[styles.swipeText, AnimatedStyles.swipeText, styles.fontText]}>
           Get Started
         </Animated.Text>
       </View>
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: BUTTON_HEIGHT,
     position: 'relative',
-    top: 50,
+
   },
   swipeable: {
     height: SWIPEABLE_DIMENSIONS,
@@ -144,6 +144,11 @@ const styles = StyleSheet.create({
     left: 0,
     height: BUTTON_HEIGHT,
     borderRadius: BUTTON_HEIGHT,
+  },
+  fontText: {
+    fontFamily: 'Poppins',
+    fontSize: 21,
+    fontWeight: '600',
   },
 });
 
