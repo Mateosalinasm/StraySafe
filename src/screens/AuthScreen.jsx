@@ -2,11 +2,7 @@ import React from 'react';
 import {Image, Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {SafeAreaView, ScrollView} from 'react-native';
 import {WEB_CLIENT_ID} from '@env';
-import {
-  GoogleSignin,
-  statusCodes,
-} from '@react-native-google-signin/google-signin';
-import {GoogleAuthProvider, signInWithCredential} from 'firebase/auth';
+
 
 const googleImage = require('../assets/images/search.png');
 const facebookImage = require('../assets/images/facebook.png');
@@ -15,15 +11,26 @@ import SocialMediaButton from '../components/SocialMediaButton';
 import Separator from '../components/Separator';
 import LoginForm from '../components/LoginForm';
 
+import {
+  GoogleSignin,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
+import {GoogleAuthProvider, signInWithCredential} from 'firebase/auth';
+import { useNavigation } from '@react-navigation/native';
+
 GoogleSignin.configure({
   webClientId: WEB_CLIENT_ID, // client ID of type WEB for your server (needed to verify user ID and offline access)
 });
 
 const AuthScreen = () => {
+  const navigation = useNavigation()
+
   const handleRegisterPress = () => {
     console.log('register');
   };
+
   const signIn = async () => {
+    console.log('hit')
     try {
       await GoogleSignin.hasPlayServices();
       const {idToken} = await GoogleSignin.signIn();
@@ -53,7 +60,7 @@ const AuthScreen = () => {
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={{flexGrow: 1}}> */}
       <View className="bg-beige-200 h-screen justify-center">
-        <View className="relative bottom-8 -rotate-11 ">
+        <View className="relative bottom-12 -rotate-8 ">
           <Text
             style={[styles.fontText, styles.dropShadow]}
             className="font-bold text-center pt-3 text-beige-500 text-5xl">
@@ -74,7 +81,7 @@ const AuthScreen = () => {
           <LoginForm />
           <View className="flex-row  bottom-2">
             <Text className="opacity-80">Don't have an account? {''}</Text>
-            <TouchableOpacity onPress={handleRegisterPress} className=" ">
+            <TouchableOpacity onPress={() => navigation.navigate('Register')} className=" ">
               <Text className=" font-medium text-beige-900">Register</Text>
             </TouchableOpacity>
           </View>
@@ -83,7 +90,7 @@ const AuthScreen = () => {
             <SocialMediaButton
               text="Sign in"
               image={googleImage}
-              onPress={signIn}
+              onPress={() => signIn()}
             />
             <SocialMediaButton text="Sign in" image={facebookImage} />
           </View>
