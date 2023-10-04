@@ -5,7 +5,7 @@ const Button = ({ text, onPress }) => {
     <View className="relative my-1">
       <TouchableOpacity className="items-center justify-center bg-beige-100 w-80 h-12 rounded-2xl border border-beige-900">
         <Text
-          className="font-bold text-beige-900 text-xl text-center"
+          className="font-bold text-beige-900 text-base text-center"
           onPress={onPress}>
           {text}
         </Text>

@@ -11,20 +11,20 @@ const Home = ({navigation}) => {
       {/* <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={{flexGrow: 1}}> */}
-      <View className="bg-beige-200 h-screen justify-center border">
+      <View className="bg-beige-200 h-screen justify-center ">
         <View className="items-center ">
           <Image
-            className=" w-52 h-12 -rotate-20 absolute -top-12 left-20 border justify-center"
+            className=" w-52 h-12 -rotate-20 absolute -top-12 left-20  justify-center"
             source={require('../assets/images/straysafe-quote.png')}
           />
           <Image
             style={styles.dropShadow}
-            className="m-6 w-80 h-96 justify-center border"
+            className="m-6 w-80 h-96 justify-center "
             source={require('../assets/images/pitbull-puppy.png')}
           />
         </View>
         <Banner />
-        <View className="flex-row justify-around border mt-4 relative">
+        <View className="flex-row justify-around  mt-20 relative">
           <SwipeButton navigation={navigation} />
         </View>
       </View>
