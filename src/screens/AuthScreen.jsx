@@ -1,11 +1,13 @@
 import React from 'react';
-import {Image, Text, View, StyleSheet, Pressable} from 'react-native';
+import {Image, Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {SafeAreaView, ScrollView} from 'react-native';
 import {WEB_CLIENT_ID} from '@env';
 import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import {GoogleAuthProvider, signInWithCredential} from 'firebase/auth';
+
 const googleImage = require('../assets/images/search.png');
 const facebookImage = require('../assets/images/facebook.png');
 import Button from '../components/Button';
@@ -24,9 +26,11 @@ const AuthScreen = () => {
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
-      setState({userInfo});
+      const {idToken} = await GoogleSignin.signIn();
+      const googleCredentials = GoogleAuthProvider.credential(idToken);
+      await signInWithCredential(googleCredentials);
     } catch (error) {
+      console.log('got error: ', error.message);
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
       } else if (error.code === statusCodes.IN_PROGRESS) {
@@ -70,13 +74,17 @@ const AuthScreen = () => {
           <LoginForm />
           <View className="flex-row  bottom-2">
             <Text className="opacity-80">Don't have an account? {''}</Text>
-            <Pressable onPress={handleRegisterPress} className=" ">
+            <TouchableOpacity onPress={handleRegisterPress} className=" ">
               <Text className=" font-medium text-beige-900">Register</Text>
-            </Pressable>
+            </TouchableOpacity>
           </View>
           <Separator />
           <View className="flex-row w-80 justify-between top-2">
-            <SocialMediaButton text="Sign in" image={googleImage} />
+            <SocialMediaButton
+              text="Sign in"
+              image={googleImage}
+              onPress={signIn}
+            />
             <SocialMediaButton text="Sign in" image={facebookImage} />
           </View>
         </View>
@@ -98,7 +106,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.09,
     shadowRadius: 3,
   },
-  registerLink: {},
 });
 
 export default AuthScreen;
