@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: BUTTON_HEIGHT,
     position: 'relative',
-
   },
   swipeable: {
     height: SWIPEABLE_DIMENSIONS,

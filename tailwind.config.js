@@ -18,6 +18,9 @@ module.exports = {
         }
       },
       rotate: {
+        '8': '8deg',
+        '10': '10deg',
+        '12': '12deg',
         '15': '15deg',
         '17': '17deg',
         '20': '20deg',

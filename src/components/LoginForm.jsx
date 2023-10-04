@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Text,
   Image,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
 
 const mailIcon = require('../assets/images/mail.png');
@@ -25,7 +25,7 @@ const SignInForm = () => {
       {/* <Text className="text-sm text-beige-900">Email address</Text> */}
       <View>
         <TextInput
-          className="h-12 p-4 my-2 block w-80 rounded-2xl border border-beige-900 py-1.5 text-beige-900 shadow-sm  bg-beige-100"
+          className="h-12 p-4 my-2 block w-80 rounded-2xl border border-b-beige-900 border-beige-900 py-1.5 text-beige-900 shadow-sm  bg-beige-100"
           onChangeText={setEmail}
           value={email}
           keyboardType="email-address"

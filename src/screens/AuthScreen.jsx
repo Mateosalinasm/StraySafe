@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, View, StyleSheet} from 'react-native';
+import {Image, Text, View, StyleSheet, Pressable} from 'react-native';
 import {SafeAreaView, ScrollView} from 'react-native';
 import {WEB_CLIENT_ID} from '@env';
 import {
@@ -11,13 +11,16 @@ const facebookImage = require('../assets/images/facebook.png');
 import Button from '../components/Button';
 import SocialMediaButton from '../components/SocialMediaButton';
 import Separator from '../components/Separator';
-import LoginForm from '../components/LoginForm'
+import LoginForm from '../components/LoginForm';
 
 GoogleSignin.configure({
   webClientId: WEB_CLIENT_ID, // client ID of type WEB for your server (needed to verify user ID and offline access)
 });
 
 const AuthScreen = () => {
+  const handleRegisterPress = () => {
+    console.log('register');
+  };
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
@@ -46,7 +49,7 @@ const AuthScreen = () => {
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={{flexGrow: 1}}> */}
       <View className="bg-beige-200 h-screen justify-center">
-        <View className="relative bottom-8 -rotate-12 ">
+        <View className="relative bottom-8 -rotate-11 ">
           <Text
             style={[styles.fontText, styles.dropShadow]}
             className="font-bold text-center pt-3 text-beige-500 text-5xl">
@@ -65,10 +68,17 @@ const AuthScreen = () => {
           {/* <Button text="Sign in" onPress={handlePress} />
           <Button text="Sign up" /> */}
           <LoginForm />
-          <Text className='bottom-5 text-sm '>Don't have an account? Register</Text>
+          <View className="flex-row  bottom-2">
+            <Text className="opacity-80">Don't have an account? {''}</Text>
+            <Pressable onPress={handleRegisterPress} className=" ">
+              <Text className=" font-medium text-beige-900">Register</Text>
+            </Pressable>
+          </View>
           <Separator />
-          <SocialMediaButton text="Sign in with Google" image={googleImage}/>
-          <SocialMediaButton text="Sign in with Facebook" image={facebookImage}/>
+          <View className="flex-row w-80 justify-between top-2">
+            <SocialMediaButton text="Sign in" image={googleImage} />
+            <SocialMediaButton text="Sign in" image={facebookImage} />
+          </View>
         </View>
       </View>
       {/* </ScrollView> */}
@@ -88,6 +98,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.09,
     shadowRadius: 3,
   },
+  registerLink: {},
 });
 
 export default AuthScreen;
