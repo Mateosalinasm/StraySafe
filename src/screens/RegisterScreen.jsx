@@ -1,12 +1,11 @@
 import React from 'react';
 import {View, Text, SafeAreaView} from 'react-native';
+import RegisterForm from '../components/RegisterForm';
 
 const RegisterScreen = () => {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Register</Text>
-      </View>
+    <SafeAreaView className="bg-beige-200 h-screen">
+        <RegisterForm />
     </SafeAreaView>
   );
 };

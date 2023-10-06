@@ -26,6 +26,7 @@ const SignInForm = () => {
       <View>
         <TextInput
           className="h-12 p-4 my-2 block w-80 rounded-2xl border border-b-beige-900 border-beige-900 py-1.5 text-beige-900 shadow-sm  bg-beige-100"
+          style={styles.dropShadow}
           onChangeText={setEmail}
           value={email}
           keyboardType="email-address"
@@ -40,6 +41,7 @@ const SignInForm = () => {
       <View>
         <TextInput
           className="h-12 p-4 mt-2 block w-80 rounded-2xl border border-beige-900 py-1.5 text-beige-900 shadow-sm  bg-beige-100"
+          style={styles.dropShadow}
           onChangeText={setPassword}
           value={password}
           secureTextEntry
@@ -54,6 +56,7 @@ const SignInForm = () => {
       </View>
       <View className="items-center mt-5">
         <TouchableOpacity
+          style={styles.dropShadow}
           onPress={handleSignIn}
           className="items-center justify-center bg-beige-900 w-80 h-12 rounded-2xl border border-beige-900">
           <Text className="text-beige-100 font-semibold text-base">
@@ -75,6 +78,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 10,
     padding: 10,
+  },
+  dropShadow: {
+    shadowColor: 'black',
+    shadowOffset: {width: 2, height: 6},
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
   },
 });
 
