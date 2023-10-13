@@ -2,6 +2,7 @@ import React from 'react';
 import {Image, Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {SafeAreaView, ScrollView} from 'react-native';
 import {WEB_CLIENT_ID} from '@env';
+import {IOS_CLIENT_ID} from '@env';
 
 
 const googleImage = require('../assets/images/search.png');
@@ -20,6 +21,7 @@ import { useNavigation } from '@react-navigation/native';
 
 GoogleSignin.configure({
   webClientId: WEB_CLIENT_ID, // client ID of type WEB for your server (needed to verify user ID and offline access)
+  iosClientId: IOS_CLIENT_ID
 });
 
 const AuthScreen = () => {
@@ -92,7 +94,7 @@ const AuthScreen = () => {
               image={googleImage}
               onPress={() => signIn()}
             />
-            <SocialMediaButton text="Sign in" image={facebookImage} />
+            <SocialMediaButton text="Sign in" image={facebookImage} onPress={() => navigation.navigate('Dashboard')}/>
           </View>
         </View>
       </View>

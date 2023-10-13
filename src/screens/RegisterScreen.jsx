@@ -5,7 +5,7 @@ import RegisterForm from '../components/RegisterForm';
 const RegisterScreen = () => {
   return (
     <SafeAreaView className="bg-beige-200 h-screen">
-        <RegisterForm />
+      <RegisterForm />
     </SafeAreaView>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, Text} from 'react-native';
 import Banner from '../components/Banner';
 import Button from '../components/Button';
 import SwipeButton from '../components/SwipeButton';
@@ -24,7 +24,12 @@ const Home = ({navigation}) => {
           />
         </View>
         <Banner />
-        <View className="flex-row justify-around  mt-20 relative">
+        <View className='items-center top-1'>
+          <Text className="text-beige-900 text-[13px] font-[Poppins]">
+            Bringing strays home
+          </Text>
+        </View>
+        <View className="flex-row justify-around top-16 relative">
           <SwipeButton navigation={navigation} />
         </View>
       </View>

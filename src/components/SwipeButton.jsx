@@ -91,7 +91,7 @@ const SwipeButton = ({onToggle, navigation}) => {
     }),
   };
   return (
-    <GestureHandlerRootView style={styles.container}>
+    <GestureHandlerRootView style={[styles.container, styles.dropShadow]} className=' rounded-full border-beige-400'>
       <View style={styles.swipeCont}>
         <Animated.View
           style={[styles.wave, AnimatedStyles.wave]}></Animated.View>
@@ -148,6 +148,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins',
     fontSize: 21,
     fontWeight: '600',
+  },
+  dropShadow: {
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 3},
+    shadowOpacity: 0.4,
+    shadowRadius: 5,
   },
 });
 

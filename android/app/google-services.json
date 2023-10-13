@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "64257442774",
+    "project_id": "stray-safe",
+    "storage_bucket": "stray-safe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64257442774:android:de1126807a12fbb26e9a77",
+        "android_client_info": {
+          "package_name": "com.straysafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64257442774-js01it56402f2u118k9aodu8lthhmc5v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.straysafe",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "64257442774-mh7ucc3t1258a8mi6c5log49m3m8q5en.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsNy0MSWwoUjyKMQ0kqh7fDvXVEZYe4t4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64257442774-mh7ucc3t1258a8mi6c5log49m3m8q5en.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "64257442774-p860a66b7kjdrk2afb2kr7e4dcqgtm44.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.StraySafe"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
