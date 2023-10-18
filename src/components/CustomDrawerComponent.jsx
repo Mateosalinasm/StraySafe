@@ -13,6 +13,7 @@ export default function CustomDrawerComponent() {
             className="h-[80px] w-[80px] rounded-full"
           />
         </View>
+        <Text className='py-3 text-beige-900 font-semibold text-[14px]'>Jessica</Text>
       </View>
       <DrawerList />
     </DrawerContentScrollView>
