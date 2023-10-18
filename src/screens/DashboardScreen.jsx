@@ -8,13 +8,13 @@ export default function DashboardScreen({navigation}) {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={{flexGrow: 1}}>
-        <TouchableOpacity className='px-6 py-4' onPress={() => navigation.toggleDrawer()}>
+        {/* <TouchableOpacity className='px-6 py-4' onPress={() => navigation.toggleDrawer()}>
           <Image
             className="h-[26px] w-[28px] relative"
             source={require('../assets/images/paw-print-2.png')}
             alt=""
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </ScrollView>
     </SafeAreaView>
   );

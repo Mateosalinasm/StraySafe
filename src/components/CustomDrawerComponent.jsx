@@ -1,13 +1,20 @@
 import {View, Text, Image, StyleSheet} from 'react-native';
 import React from 'react';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
+import DrawerList from './DrawerList';
 
 export default function CustomDrawerComponent() {
   return (
-    <DrawerContentScrollView style={[styles.dropShadow]}>
-      <View className="ml-[20px] my-[10px]">
-        <Image source={require('../assets/images/smiling-girl.jpg')} className='h-[70px] w-[70px] rounded-full'/>
+    <DrawerContentScrollView>
+      <View className=" my-[10px] items-center">
+        <View style={[styles.dropShadow]}>
+          <Image
+            source={require('../assets/images/smiling-girl.jpg')}
+            className="h-[80px] w-[80px] rounded-full"
+          />
+        </View>
       </View>
+      <DrawerList />
     </DrawerContentScrollView>
   );
 }

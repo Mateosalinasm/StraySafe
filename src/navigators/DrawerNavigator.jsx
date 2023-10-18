@@ -10,20 +10,22 @@ export default function DrawerNavigator() {
   return (
     <Drawer.Navigator
       screenOptions={{
-        // headerBackground: '1px, black',
-        headerShown: false,
-        headerStyle: {
-          borderColor: 'black',
-          borderWidth: 1,
+        headerTitle: '',
+        headerTintColor: '#7f5539',
+        headerLeftContainerStyle: {
+          paddingLeft: 10,
         },
-        // drawerType: 'slide',
+        headerStyle: {
+          backgroundColor: '#e6ccb2',
+        },
+        drawerType: 'slide',
         drawerStyle: {
-          width: 200,
+          width: 210,
           backgroundColor: '#ddb892',
         },
       }}
       drawerContent={props => <CustomDrawerComponent {...props} />}>
-      <Drawer.Screen className="bg-black border" name="Dashboard">
+      <Drawer.Screen className="bg-black border" name="DashboardDrawerScreen">
         {({navigation}) => <DashboardScreen navigation={navigation} />}
       </Drawer.Screen>
     </Drawer.Navigator>
