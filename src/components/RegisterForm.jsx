@@ -1,9 +1,11 @@
 import {View, Text, Image, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
+import BackBtn from './BackBtn';
 
 export default function RegisterForm() {
   return (
     <View className="items-center">
+      <BackBtn />
       <View>
         <Text
           className="text-beige-500 text-6xl font-extrabold my-10 "

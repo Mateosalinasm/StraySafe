@@ -52,7 +52,7 @@ const SwipeButton = ({onToggle, navigation}) => {
         X.value = withSpring(H_SWIPE_RANGE, {
           damping: 15,
         });
-         runOnJS(navigation.navigate)('AuthScreen');
+         runOnJS(navigation.navigate)('Dashboard');
       }
     },
   });

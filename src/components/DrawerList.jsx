@@ -1,8 +1,10 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
 import {DrawerItem} from '@react-navigation/drawer';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 
-export default function DrawerList({navigation}) {
+export default function DrawerList() {
+  const navigation = useNavigation();
   return (
     <View className="">
       <DrawerItem
@@ -38,7 +40,7 @@ export default function DrawerList({navigation}) {
       />
       <DrawerItem
         label="PROFILE"
-        onPress={() => navigation.navigate('Dashboard')}
+        onPress={() => navigation.navigate('AuthScreen')}
         icon={() => (
           <Image
             source={require('../assets/images/profile-icon.png')}
@@ -49,3 +51,4 @@ export default function DrawerList({navigation}) {
     </View>
   );
 }
+

@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import Home from '../screens/Home';
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -10,6 +10,7 @@ export default function DrawerNavigator() {
   return (
     <Drawer.Navigator
       screenOptions={{
+        drawerType: 'slide',
         headerTitle: '',
         headerTintColor: '#7f5539',
         headerLeftContainerStyle: {
@@ -18,11 +19,17 @@ export default function DrawerNavigator() {
         headerStyle: {
           backgroundColor: '#e6ccb2',
         },
-        drawerType: 'slide',
         drawerStyle: {
           width: 210,
           backgroundColor: '#ddb892',
         },
+        drawerInactiveBackgroundColor: 'red',
+        drawerLabelStyle: {
+          fontWeight: 'bold'
+        },
+        drawerItemStyle: {
+          fontWeight: 'thin'
+        }
       }}
       drawerContent={props => <CustomDrawerComponent {...props} />}>
       <Drawer.Screen className="bg-black border" name="DashboardDrawerScreen">
@@ -31,3 +38,9 @@ export default function DrawerNavigator() {
     </Drawer.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  ItemFontWeight: {
+    fontWeight: 'semibold',
+  },
+});

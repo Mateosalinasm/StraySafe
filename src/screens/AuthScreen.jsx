@@ -4,10 +4,8 @@ import {SafeAreaView, ScrollView} from 'react-native';
 import {WEB_CLIENT_ID} from '@env';
 import {IOS_CLIENT_ID} from '@env';
 
-
 const googleImage = require('../assets/images/search.png');
 const facebookImage = require('../assets/images/facebook.png');
-import Button from '../components/Button';
 import SocialMediaButton from '../components/SocialMediaButton';
 import Separator from '../components/Separator';
 import LoginForm from '../components/LoginForm';
@@ -17,22 +15,23 @@ import {
   statusCodes,
 } from '@react-native-google-signin/google-signin';
 import {GoogleAuthProvider, signInWithCredential} from 'firebase/auth';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import BackBtn from '../components/BackBtn';
 
 GoogleSignin.configure({
   webClientId: WEB_CLIENT_ID, // client ID of type WEB for your server (needed to verify user ID and offline access)
-  iosClientId: IOS_CLIENT_ID
+  iosClientId: IOS_CLIENT_ID,
 });
 
 const AuthScreen = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   const handleRegisterPress = () => {
     console.log('register');
   };
 
   const signIn = async () => {
-    console.log('hit')
+    console.log('hit');
     try {
       await GoogleSignin.hasPlayServices();
       const {idToken} = await GoogleSignin.signIn();
@@ -62,6 +61,7 @@ const AuthScreen = () => {
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={{flexGrow: 1}}> */}
       <View className="bg-beige-200 h-screen justify-center">
+        <BackBtn />
         <View className="relative bottom-12 -rotate-8 ">
           <Text
             style={[styles.fontText, styles.dropShadow]}
@@ -83,7 +83,9 @@ const AuthScreen = () => {
           <LoginForm />
           <View className="flex-row  bottom-2">
             <Text className="opacity-80">Don't have an account? {''}</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Register')} className=" ">
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Register')}
+              className=" ">
               <Text className=" font-medium text-beige-900">Register</Text>
             </TouchableOpacity>
           </View>
@@ -94,7 +96,11 @@ const AuthScreen = () => {
               image={googleImage}
               onPress={() => signIn()}
             />
-            <SocialMediaButton text="Sign in" image={facebookImage} onPress={() => navigation.navigate('Dashboard')}/>
+            <SocialMediaButton
+              text="Sign in"
+              image={facebookImage}
+              onPress={() => navigation.navigate('Dashboard')}
+            />
           </View>
         </View>
       </View>
